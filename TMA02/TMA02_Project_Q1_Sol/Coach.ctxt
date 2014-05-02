@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=fitnessFrog1\ fitnessFrog2
+comment0.target=Coach(FitnessFrog,\ FitnessFrog)
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Coach.\n
+comment1.params=
+comment1.target=FitnessFrog\ getSporty1()
+comment1.text=\n\ Getter\ for\ sporty1.\n
+comment2.params=
+comment2.target=FitnessFrog\ getSporty2()
+comment2.text=\n\ Getter\ for\ sporty2.\n
+comment3.params=
+comment3.target=int\ getNumberRepetitions()
+comment3.text=\n\ Returns\ the\ number\ of\ repetitions\ (between\ 1\ and\ 5\ inclusive)\n\ specified\ by\ the\ user\ via\ a\ dialogue\ box.\n
+comment4.params=
+comment4.target=void\ announceFittestFrog()
+comment4.text=\n\ To\ do\ for\ Part\ (ii)\n\ \n\ Changes\ the\ colour\ of\ the\ Fitness\ Frog\ that\ has\ run\ the\ farthest\ to\n\ yellow\ and\ croaks\ once.\ Returns\ no\ value.\n
+comment5.params=
+comment5.target=void\ train()
+comment5.text=\n\ First\ checks\ if\ both\ Fitness\ Frogs\ are\ currently\ positioned\ on\ the\ running\n\ track\ (black\ stones\ numbered\ 1\ to\ 11).\ If\ so,\ readys\ the\ Fitness\ Frogs\ for\n\ sprinting.\ Next\ requests\ the\ user\ for\ the\ number\ of\ repetitions\ via\ a\ dialogue\n\ box.\ Then\ enters\ a\ loop\ whose\ length\ is\ equal\ to\ the\ number\ of\ repetitions.\n\ On\ each\ iteration,\ gets\ each\ Fitness\ Frog\ to\ sprint\ in\ turn.\ Finally,\ announces\n\ which\ of\ the\ Fitness\ Frogs\ has\ sprinted\ the\ furthest.\ Returns\ no\ value.\n
+comment6.params=aFitnessFrog
+comment6.target=boolean\ isOnBlackStones(FitnessFrog)
+comment6.text=\n\n\n\n\n
+comment7.params=
+comment7.target=void\ trainThem()
+comment7.text=\n\ \n\ \n\ \n\ \n
+numComments=8
