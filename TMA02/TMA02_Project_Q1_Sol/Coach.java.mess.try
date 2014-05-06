@@ -82,6 +82,8 @@ public class Coach
     */
    private void announceFittestFrog()
    {
+       //System.out.println(this.getSporty1().getTotalDistanceSprinted());
+       //System.out.println(this.getSporty2().getTotalDistanceSprinted());
        if (this.getSporty1().getTotalDistanceSprinted() != this.getSporty2().getTotalDistanceSprinted() )
        {
            if (this.getSporty1().getTotalDistanceSprinted() > this.getSporty2().getTotalDistanceSprinted() )
@@ -137,13 +139,8 @@ public class Coach
     
    /**
     * For part (vi)
-    * First checks if both Fitness Frogs are currently positioned on the running
-    * track (black stones numbered 1 to 11). If so, readys the Fitness Frogs for
-    * sprinting. Next requests the user for the number of repetitions via a dialogue
-    * box. Then enters a loop whose length is equal to the number of repetitions.
-    * On each iteration, gets each Fitness Frog to sprint in turn. Finally, announces
-    * which of the Fitness Frogs has sprinted the furthest. Returns no value.
-    * @throws IllegalStateException if frogs are not on running track in order to train
+    * 
+    * @throws if frogs are not on running track in order to train
     * 
     */
    public void trainThem()
@@ -152,26 +149,22 @@ public class Coach
            if ( (!isOnBlackStones(sporty1)) || (!isOnBlackStones(sporty2)) )
            {
                throw new IllegalStateException("Training cannot take place since both Fitness Frogs are not on the racing track");
-            } else
-            { 
-                int repetitions = 0;
-                
-                this.getSporty1().resetTotalDistanceSprinted();
-                this.getSporty2().resetTotalDistanceSprinted();
-                repetitions = this.getNumberRepetitions();
-                for (int count = 1; count <= repetitions; count++)
-                { 
-                    this.getSporty1().sprint();
-                    this.getSporty2().sprint();
-                }
-       
-                this.announceFittestFrog();
             }
-            
         } catch (IllegalStateException e) {
-            System.out.println(e.getMessage());
-            
+            System.out.println("Training cannot take place since both Fitness Frogs are not on the racing track" + e.getMessage());
         }
+   
+       int repetitions = 0;      
 
+         this.getSporty1().resetTotalDistanceSprinted();
+         this.getSporty2().resetTotalDistanceSprinted();
+         repetitions = this.getNumberRepetitions();
+         for (int count = 1; count <= repetitions; count++)
+         { 
+             this.getSporty1().sprint();
+             this.getSporty2().sprint();
+            }
+       
+       this.announceFittestFrog();
    }
 }

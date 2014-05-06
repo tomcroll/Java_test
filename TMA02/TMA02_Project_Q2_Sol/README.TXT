@@ -1,0 +1,20 @@
+ManagementServer ms = new ManagementServer();
+ms.addTestClients();
+ms.printMap();
+ms.printMapValue("prod1");
+ms.printMapValue("dfasd");
+
+Set<String> attributes = new HashSet<>();
+       attributes.add("Frank");
+       attributes.add("DB2");
+       attributes.add("10.10.10.2");
+       attributes.add("Prod");
+ 
+ms.addMapEntry("prod1", attributes);
+
+ms.printMap();
+ms.selectKeys("Dev");
+ms.addValue("test1","AIX");
+ms.selectKeys("Dev");
+ms.selectKeys("AIX");
+ms.deleteValue("test1","AIX");
