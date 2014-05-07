@@ -1,17 +1,20 @@
 /* import statement */
+import java.io.*;
+import java.util.*;
+import ou.*;
 
 // To be added by students in Question 3, part (iv)
 
 /**
  * Class Runner - Simulates a runner in a Marathon.
  * 
- * @author M250 Course Team 
+ * @author Tom Croll 
  * @version Version 1.0
  */
-public class Runner 
+public class Runner implements Comparable<Runner>
 {
 /* static variables */
-
+    private static int nextNumber = 1;
 // To be added by students in Question 3, part (i)(a) and part(iv)(a)
 
 /* instance variables */
@@ -33,9 +36,21 @@ public class Runner
       this.time = 0;
       
     // additional code to be added by students in Q3, part (i)(b)
+      this.number = Runner.nextNumber;
+      Runner.nextNumber = Runner.nextNumber +1;
     }
 
 /* instance methods */
+
+   /**
+    * Compares the receiver with the argument and returns:
+    * @param Runner anotherRunner
+    * @return int
+    */
+   public int compareTo(Runner anotherRunner)
+   {
+       return (this.getTime() - anotherRunner.getTime());
+    }
 
     //Only those accessor methods that you will need have been included
         
