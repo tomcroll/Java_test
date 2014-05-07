@@ -1,0 +1,13 @@
+Runner r = new Runner();
+Runner r2 = new Runner();
+Runner r3 = new Runner();
+Runner r4 = new Runner();
+MarathonAdmin ma = new MarathonAdmin();
+ma.readInRunners();
+ma.runMarathon();
+
+
+MarathonAdmin ma = new MarathonAdmin();
+ma.readInRunners(); 
+ma.runMarathon(); 
+ma.sortRunnerList(); 

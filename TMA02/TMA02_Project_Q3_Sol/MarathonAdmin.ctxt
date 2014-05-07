@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MarathonAdmin()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ MarathonAdmin\n
+comment1.params=anAge
+comment1.target=java.lang.String\ getAgeGroup(int)
+comment1.text=\n\ Helper\ method\ to\ decide\ runner\ age\ group\n\ @param\ int\ anAge\n\ @return\ String\ ageGroup\n
+comment2.params=
+comment2.target=void\ readInRunners()
+comment2.text=\n\ Method\ will\ read\ from\ a\ selected\ file\ (should\ be\ runners.txt)\n
+comment3.params=
+comment3.target=int\ getRunTime()
+comment3.text=\n\ Helper\ method\ to\ get\ random\ number\ for\ time\n
+comment4.params=
+comment4.target=void\ runMarathon()
+comment4.text=\n\ pulic\ method\ that\ takes\ no\ args\ and\ returns\ no\ value.\ Method\ will\ iterate\ over\ \n\ the\ runners\ and\ assign\ a\ random\ number\ in\ the\ range\ 90\ -\ 180\ inclusive\ for\n\ the\ time\ attribute\n
+comment5.params=
+comment5.target=void\ sortRunnerList()
+comment5.text=\n\ Public\ method\ that\ takes\ no\ arguments\ and\ returns\ no\ value.\ The\ method\ sorts\ the\ \n\ receiver's\ runners\ list\ by\ the\ time\ each\ runner\ has\ taken\ to\ complete\ the\ marathon\n\ so\ that\ the\ fastest\ runner\ is\ first\ in\ the\ list\ and\ so\ on...\n
+numComments=6
