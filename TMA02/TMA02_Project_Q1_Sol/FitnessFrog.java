@@ -6,8 +6,8 @@ import java.util.Random;
  * sprinting, they move a random number of stones (between 2 and 5
  * inclusive) in a rightward direction.
  * 
- * @author (M250 MT)
- * @version (1.0)
+ * @author Tom Croll
+ * @version 1.0
  */
 public class FitnessFrog extends Frog
 {

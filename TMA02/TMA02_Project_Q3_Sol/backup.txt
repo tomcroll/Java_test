@@ -11,3 +11,10 @@ MarathonAdmin ma = new MarathonAdmin();
 ma.readInRunners(); 
 ma.runMarathon(); 
 ma.sortRunnerList(); 
+
+
+MarathonAdmin ma = new MarathonAdmin();
+ma.readInRunners();
+ma.runMarathon();
+ma.sortRunnerList();
+ma.categorise();

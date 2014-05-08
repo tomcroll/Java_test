@@ -3,8 +3,8 @@ import ou.*;
  * Instances of the Coach class orchestrate repetitions of sprinting
  * for two FitnessFrog objects, sporty1 and sporty1.
  * 
- * @author M250 Module Team 
- * @version 1.4
+ * @author Tom Croll
+ * @version 1.0
  */
 
 public class Coach

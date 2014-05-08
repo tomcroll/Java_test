@@ -8,10 +8,17 @@ import ou.*;
  */
 public abstract class Server
 {
+   /* private class variable declared to ensure all servers have a unique identifier
+    * This will be used to track instances in a CMDB and ensure hostnames and
+    * IP addresses do not conflict. The implementation of these functions is
+    * however, outside the scope of this assignment
+    */ 
+   private static int nextNode = 1;
    /* instance variables */
    private String serverType;
    private String hostName;
    private String IP;
+   private int nodeNumber;
    
    /**
     * Constructor for objects of the abstract class Server.
@@ -21,16 +28,22 @@ public abstract class Server
       this.serverType = "";
       this.hostName = "";
       this.IP = "";
+      
+      this.nodeNumber = Server.nextNode;
+      Server.nextNode = Server.nextNode +1;
    }
    
    /**
     * Constructor for objects of the abstract class Server.
     */
+    
    public Server(String aName, String aType, String anIP)
    {
       this.serverType = aType;
       this.hostName = aName;
       this.IP = anIP;
+      this.nodeNumber = Server.nextNode;
+      Server.nextNode = Server.nextNode +1;
    }
 
    /* instance methods */    
@@ -49,7 +62,6 @@ public abstract class Server
    public void setServerType (String aType)
    {
       this.serverType = aType;
-     // this.update("position");
    }
 
    /**
