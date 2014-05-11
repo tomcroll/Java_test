@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ClientServer()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ ClientServer\n
+comment1.params=builderName\ anApp\ anIP\ anEnv
+comment1.target=ClientServer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ ClientServer\n
+comment2.params=
+comment2.target=java.lang.String\ getBuilder()
+comment2.text=\n\ An\ example\ method\ which\ would\ return\ the\ builder\ attribute\ of\ the\ server.\ This\ would\n\ be\ useful\ for\ support\ of\ a\ server\ and\ allocation\ of\ responsibility\n\ \n\ @param\ \ None\n\ @return\ String\ Name\ of\ the\ person\ who\ built\ the\ server\ \n
+numComments=3

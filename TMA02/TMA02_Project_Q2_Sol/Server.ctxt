@@ -2,8 +2,8 @@
 comment0.params=
 comment0.target=Server()
 comment0.text=\n\ Constructor\ for\ objects\ of\ the\ abstract\ class\ Server.\n
-comment1.params=aName\ aType\ anIP
-comment1.target=Server(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=aName\ aType
+comment1.target=Server(java.lang.String,\ java.lang.String)
 comment1.text=\n\ Constructor\ for\ objects\ of\ the\ abstract\ class\ Server.\n
 comment2.params=
 comment2.target=java.lang.String\ getServerType()
@@ -25,5 +25,5 @@ comment7.target=void\ client()
 comment7.text=\n\ Sets\ the\ type\ of\ the\ receiver\ to\ master.\n
 comment8.params=
 comment8.target=java.lang.String\ toString()
-comment8.text=\n\ Returns\ a\ string\ representation\ of\ the\ receiver.\n
+comment8.text=\n\ Returns\ a\ string\ representation\ of\ the\ Server.\n
 numComments=9

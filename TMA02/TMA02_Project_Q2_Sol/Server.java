@@ -1,14 +1,16 @@
 import java.util.*;
 import ou.*;
 /**
- * The abstract class Server forms the basis of all Servers.
+ * The abstract class Server forms the basis of all Servers. Each server has
+ * basic attributes common to all objects of their class, such as hostname and
+ * server type
  *
  * @author Tom Croll
  * @version 1.0
  */
 public abstract class Server
 {
-   /* private class variable declared to ensure all servers have a unique identifier
+   /** private class variable declared to ensure all servers have a unique identifier
     * This will be used to track instances in a CMDB and ensure hostnames and
     * IP addresses do not conflict. The implementation of these functions is
     * however, outside the scope of this assignment
@@ -17,7 +19,6 @@ public abstract class Server
    /* instance variables */
    private String serverType;
    private String hostName;
-   private String IP;
    private int nodeNumber;
    
    /**
@@ -27,7 +28,6 @@ public abstract class Server
    {
       this.serverType = "";
       this.hostName = "";
-      this.IP = "";
       
       this.nodeNumber = Server.nextNode;
       Server.nextNode = Server.nextNode +1;
@@ -37,11 +37,10 @@ public abstract class Server
     * Constructor for objects of the abstract class Server.
     */
     
-   public Server(String aName, String aType, String anIP)
+   public Server(String aName, String aType)
    {
       this.serverType = aType;
       this.hostName = aName;
-      this.IP = anIP;
       this.nodeNumber = Server.nextNode;
       Server.nextNode = Server.nextNode +1;
    }
@@ -97,7 +96,7 @@ public abstract class Server
    }
 
    /**
-    * Returns a string representation of the receiver.
+    * Returns a string representation of the Server.
     */
    @Override 
    public String toString()

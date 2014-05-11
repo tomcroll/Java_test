@@ -43,7 +43,9 @@ public class Runner implements Comparable<Runner>
 /* instance methods */
 
    /**
-    * Compares the receiver with the argument and returns:
+    * Compares the receiver with the argument and returns an int. This number will be 
+    * used by the Collections.sort() method in order to place the runners in time order
+    * 
     * @param Runner anotherRunner
     * @return int
     */

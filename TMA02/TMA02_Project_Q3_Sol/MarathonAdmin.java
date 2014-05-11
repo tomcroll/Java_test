@@ -35,7 +35,7 @@ public class MarathonAdmin
     /**
      * Helper method to decide runner age group
      * @param int anAge
-     * @return String ageGroup
+     * @return String ageGroup - either "junior", "standard" or "senior"
      */
     private String getAgeGroup(int anAge)
     {
@@ -63,6 +63,55 @@ public class MarathonAdmin
         }
         return ageGroup;
     }
+
+    /**
+     * Improved helper method to decide runner age group. This time error checking
+     * has been added to help sanitise the data. I have made the assumption that and
+     * age of 0, less than 5 or greater than 130 is not realistic data for a marathon
+     * runner, so used a combination of an assertion and exceptions to improve the
+     * robustness of the code. Further reasoning provided in comments below.
+     * @param int anAge - must be postive, greater than 5 and less than 130 years old
+     * @return String ageGroup - either "junior", "standard" or "senior"
+     */
+    private String getAgeGroup2(int anAge)
+    {
+        /** Logic to assign a String value according to age range of runners. A switch 
+         * statement would have been more concise here, however nested if statements were
+         * used for readablitiy.
+         * Error checking has been added to ensure anAge is not negative or null, or even
+         * unrealistically high! i.e. > 130
+         * As this is a private helper method, we could use assertions, however they process
+         * text files of runners which could be supplied by the user, therefore I've chosen
+         * to show both methods, an assert method to check for a 0 value and
+         * IllegalArgumentExceptions if supplied age is outwith the realistic age.
+         * N.B. coding style is a little different in this case as I think the indentation
+         * is clearer. This is a deliberate improvement and not an inconsistency!
+         */
+        String ageGroup;
+        assert anAge != 0 : "Age is 0";
+        if (anAge < 5)
+        {
+            throw new IllegalArgumentException("Age is less than 5 years old. Cannot run Marathon");
+        }
+        else if (anAge > 130)
+        {
+            throw new IllegalArgumentException("Age is greater than 130 years old. Cannot run Marathon");
+        }
+        else if (anAge < 18)
+        {
+            ageGroup = "junior";
+        }
+        else if (anAge >= 55)
+        {
+            ageGroup = "senior";
+        }
+        else
+        {
+            ageGroup = "standard";
+        }
+        return ageGroup;
+    }
+    
     
     /**
      * Method will read from a selected file (should be runners.txt)
@@ -73,10 +122,21 @@ public class MarathonAdmin
         int age;
         String pathname = OUFileChooser.getFilename();
         File aFile = new File(pathname);
-        // Alert to warn if aFile exists. Could have been implemented with an assertion
+        
+        // Assert method included. Not strictly correct as this is user input 
+        // from a public method so should alert with an exception
+        // during normal running of code, but included to show understanding
+        assert aFile.exists() : "File does not exist or cannot be read";
+        
+        // Alert to warn if aFile does not exist or cannot be read. Implemented above with an assertion
+        // but could more appropriately throw and catch an IllegalArguementException as 
+        // this is a public method. The caught error could stop the program from failing
+        // and prompt the user to select another file, but this is outside the scope of this
+        // task.
         if (!aFile.exists())
         {
             OUDialog.alert("No physical file exists!");
+            throw new IllegalArgumentException("File does not exist or cannot be read");
         }
         
         Scanner bufferedScanner = null;
@@ -88,6 +148,7 @@ public class MarathonAdmin
             int runnerAge;
             Scanner lineScanner;
             String currentLine;
+            // Wrap in Scanner class in order to use hasNextLine() method
             bufferedScanner = new Scanner(new BufferedReader(new FileReader(aFile)));
             while (bufferedScanner.hasNextLine())
             {
@@ -97,10 +158,9 @@ public class MarathonAdmin
                 lineScanner.useDelimiter(",");
                 runnerName = lineScanner.next();
                 runnerAge = lineScanner.nextInt();
-                // Use helper method to set age group
-                ageGroup = getAgeGroup(runnerAge);
                 Runner r = new Runner();
                 r.setName(runnerName);
+                // Use helper method to set age group
                 r.setAgeGroup(this.getAgeGroup(runnerAge));
                 // Add Runner r to runners list
                 runners.add(r);
@@ -125,11 +185,13 @@ public class MarathonAdmin
     }
     
     /**
-     * Helper method to get random number for time
+     * Helper method to get random number for marathon time of each Runner.
+     * @param
+     * @return random number between 90 and 180
      */
     private int getRunTime()
     {
-        /** Return random number with offset of between 0 and 90, then add 90
+        /** Return random number between 0 and 90, then add 90 to
          * create range of 90 - 180
          */
         Random randomTime = new Random();
@@ -137,7 +199,7 @@ public class MarathonAdmin
     }
     
     /**
-     * pulic method that takes no args and returns no value. Method will iterate over 
+     * Pulic method that takes no args and returns no value. Method will iterate over 
      * the runners and assign a random number in the range 90 - 180 inclusive for
      * the time attribute
      */
@@ -175,30 +237,28 @@ public class MarathonAdmin
     {
         for (Runner eachRunner: runners)
         {
-            //String ageGroup = eachRunner.getAgeGroup();
             if (eachRunner.getAgeGroup().equals("junior"))
             {
                 juniorResults.put(eachRunner.getName(), eachRunner.getTime());
             }
+            else if (eachRunner.getAgeGroup().equals("standard"))
+            {
+                standardResults.put(eachRunner.getName(), eachRunner.getTime());
+            }
+            else if (eachRunner.getAgeGroup().equals("senior"))
+            {
+                 seniorResults.put(eachRunner.getName(), eachRunner.getTime());
+            }
             else
-                if (eachRunner.getAgeGroup().equals("standard"))
-                {
-                    standardResults.put(eachRunner.getName(), eachRunner.getTime());
-                }
-                else
-                    if (eachRunner.getAgeGroup().equals("senior"))
-                    {
-                        seniorResults.put(eachRunner.getName(), eachRunner.getTime());
-                    }
-                    else
-                    {
-                        /** Warn if age group is invalid. This should be unnecessary as age group can
-                         * only be assigned values via this class, however this is an example of defensive programming
-                         * An assert statement would perhaps be more appropriate as this is more useful for testing
-                         * purposes, however I've left it in this format for clarity.
-                         */
-                        System.out.println("Runner " + eachRunner.getName() + " has invalid Age Group!");
-                    }
+            {
+                
+                /** Warn if age group is invalid. This should be unnecessary as age group can
+                 * only be assigned values via this class, however this is an example of defensive programming
+                 * An assert statement would perhaps be more appropriate as this is more useful for testing
+                 * purposes, however I've left it in this format for clarity.
+                 */
+                System.out.println("Runner " + eachRunner.getName() + " has invalid Age Group!");
+            }       
         }
     }
                 

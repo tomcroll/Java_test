@@ -4,7 +4,7 @@ import ou.*;
  * The class ManagementServer defines a Server with the characteristics of a Management Server.
  *
  * @author Tom Croll
- * @version 2.0
+ * @version 1.0
  */
 
 public class ManagementServer extends Server
@@ -19,7 +19,7 @@ public class ManagementServer extends Server
     */
    public ManagementServer()
    {
-      super("management", "master", "");
+      super("management", "master");
       this.serverMap = new HashMap<>();
       this.attributes = new HashSet<>();
    }
@@ -112,7 +112,8 @@ public class ManagementServer extends Server
     }
     
    /**
-     * Returns a collection of all the keys which do not match the input string aKey
+     * Returns a collection of all the keys which containing the method String parameter
+     * This could be used to find all "Dev" servers etc. 
      * @param String aKey
      * @return Set<String> selectServers
      */

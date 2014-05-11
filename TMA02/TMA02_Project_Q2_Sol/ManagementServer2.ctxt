@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ManagementServer2()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Server\ which\ instatiates\ the\ variables\n\ for\ a\ management\ server\n
+comment1.params=
+comment1.target=void\ addTestClients()
+comment1.text=\n\ Populates\ Map\ with\ test\ data.\ This\ time,\ collections\ of\ server\ objects\ are\ create\n\ and\ grouped\ into\ HashSets\ of\ clients\ -\ in\ this\ example\ servers\ are\ grouped\ into\ \n\ subnets\ to\ model\ IP\ address\ ranges\ /\ groups\ of\ clients.\ This\ would\ be\ useful\ for\n\ allocating\ group\ operations\ and\ permission\ rules\ etc.\n
+numComments=2

@@ -6,7 +6,9 @@ import ou.*;
 // To be added by students in Question 3, part (iv)
 
 /**
- * Class Runner - Simulates a runner in a Marathon.
+ * Class Runner - Simulates a runner in a Marathon. This is the first iteration which
+ * does not implement the Comparable interface. This code will not compile due to the 
+ * change of filename, however it is included to show the first solution.
  * 
  * @author Tom Croll 
  * @version Version 1.0
